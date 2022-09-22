@@ -49,7 +49,7 @@ Route::apiResource('ticket', TicketController::class);
 // to see the available options for category, status, & priority level
 Route::get('ticket-lookup', LookupController::class);
 
-// to see the available options for category, status, & priority level
+// for developer to edit categories
 Route::apiResource('categories', CategoryController::class);
 
 });

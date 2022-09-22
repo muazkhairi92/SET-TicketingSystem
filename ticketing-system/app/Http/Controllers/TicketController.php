@@ -99,13 +99,14 @@ class TicketController extends Controller
     public function update(UpdateticketRequest $request, Ticket $ticket)
     {
         //
-        if($ticket->user_id== Auth::id() && (Auth::user()->roles=='support'||'developer')){
+        if(Auth::user()->roles=='support'||'developer'){
             $ticket->update($request->except(["title","category"]));
             return new TicketResource($ticket);
            }
-    
+           else{
             // $class = Classroom::findOrfail($classroom);    
             abort(403);
+           }
     }
 
     /**
